@@ -1,0 +1,315 @@
+<html>
+    <head>
+        <title>Tic Tac</title>
+
+        <style>
+
+            body{
+                background-color: black;
+                text-align: center;
+            }
+
+            h1{
+                text-align: center;
+                color: blanchedalmond;
+            }
+
+            table.centre {
+                margin-left: auto;
+                margin-right: auto;
+                border-collapse: collapse;
+            }
+            #a, #b, #c, #d, #e, #f, #g, #h, #i{
+                width: 100px;
+                height: 100px;
+                font-size: 60px; 
+            }
+
+            p{
+                color: white;
+            }
+
+            
+
+        </style>
+    </head>
+
+    <body>
+        <h1>Welcome to tic tac toe</h1>
+        <br><br><br>
+        
+        <table class = "centre" >
+            <tr>
+                <th>
+                    <input type = "button" id = "a" onclick = "A(); winner()">
+                    <input type = "button" id = "b" onclick = "B(); winner()" >
+                    <input type = "button" id = "c" onclick = "C(); winner()">
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <input type = "button" id = "d" onclick = "D(); winner()">
+                    <input type = "button" id = "e" onclick = "E(); winner()">
+                    <input type = "button" id = "f" onclick = "F(); winner()">
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <input type = "button" id = "g" onclick = "G(); winner()">
+                    <input type = "button" id = "h" onclick = "H(); winner()">
+                    <input type = "button" id = "i" onclick = "I(); winner()">
+                </th>
+            </tr>
+        </table>
+
+        <br><br>
+        <p id = "res"></p>
+        <br><br>
+        <input type = "button" id = "play" value = "Play Again" onclick = "reset()">
+    </body>
+
+    <script>
+
+        var board = new Array(3);
+        for(let i = 0; i < 3; i++){
+            board[i] = new Array(3);
+        }
+
+
+        for(let i = 0; i < 3; i++){
+            for(let j = 0; j < 3; j++){
+                board[i][j] = '_';
+            }
+        }
+
+        console.log(board[0][0]);
+
+        function reset(){
+
+            document.getElementById("res").innerHTML = "";
+
+            for(let i = 0; i < 3; i++){
+                for(let j = 0; j < 3; j++){
+                    board[i][j] = '_';
+                }
+            }            
+
+            document.getElementById("a").value = "";
+            document.getElementById("b").value = "";
+            document.getElementById("c").value = "";
+            document.getElementById("d").value = "";
+            document.getElementById("e").value = "";
+            document.getElementById("f").value = "";
+            document.getElementById("g").value = "";
+            document.getElementById("h").value = "";
+            document.getElementById("i").value = "";
+        }
+
+        function winner(){
+
+            if(isWin('x')){
+                document.getElementById("res").innerHTML = "Congrats You Win";
+            }
+
+            else if(isWin('o')){
+                document.getElementById("res").innerHTML = "You Lost";
+                for(let i = 0; i < 3; i++){
+                    for(let j = 0; j < 3; j++){
+                        if(board[i][j] == '_'){
+                            board[i][j] = '/';
+                        }
+                    }
+                }
+            }
+
+            else if(isFull()){
+                document.getElementById("res").innerHTML = "Its a Tie";
+                for(let i = 0; i < 3; i++){
+                    for(let j = 0; j < 3; j++){
+                        if(board[i][j] == '_'){
+                            board[i][j] = '/';
+                        }
+                    }
+                }
+            }
+        }
+
+        function A(){
+            if(board[0][0] != '_') return;
+            board[0][0] = 'x';
+            document.getElementById("a").value = "X";
+            computerMove();
+        }
+        function B(){
+            if(board[0][1] != '_') return;
+            board[0][1] = 'x';
+            document.getElementById("b").value = "X";
+            computerMove();
+        }
+        function C(){
+            if(board[0][2] != '_') return;
+            board[0][2] = 'x';
+            document.getElementById("c").value = "X";
+            computerMove();
+        }
+        function D(){
+            if(board[1][0] != '_') return;
+            board[1][0] = 'x';
+            document.getElementById("d").value = "X";
+            computerMove();
+        }
+        function E(){
+            if(board[1][1] != '_') return;
+            board[1][1] = 'x';
+            document.getElementById("e").value = "X";
+            computerMove();
+        }
+        function F(){
+            if(board[1][2] != '_') return;
+            board[1][2] = 'x';
+            document.getElementById("f").value = "X";
+            computerMove();
+        }
+        function G(){
+            if(board[2][0] != '_') return;
+            board[2][0] = 'x';
+            document.getElementById("g").value = "X";
+            computerMove();
+        }
+        function H(){
+            if(board[2][1] != '_') return;
+            board[2][1] = 'x';
+            document.getElementById("h").value = "X";
+            computerMove();
+        }
+        function I(){
+            if(board[2][2] != '_') return;
+            board[2][2] = 'x';
+            document.getElementById("i").value = "X";
+            computerMove();
+        }
+
+        function isFull(){
+            for(let i = 0; i < 3; i++){
+                for(let j = 0; j < 3; j++){
+                    if(board[i][j] == '_') return false;
+                }
+            }
+
+            return true;
+        }
+
+        function isWin(ch){
+            for(let i = 0; i < 3; i++){
+                if(board[i][0] == ch && board[i][0] == board[i][1] && board[i][1] == board[i][2]) return true;
+            }
+            for(let j = 0; j < 3; j++){
+                if(board[0][j] == ch && board[0][j] == board[1][j] && board[1][j] == board[2][j]) return true;
+            }
+
+            if(board[0][0] == ch && board[0][0] == board[1][1] && board[1][1] == board[2][2]) return true;
+
+            if(board[2][0] == ch && board[2][0] == board[1][1] && board[1][1] == board[0][2]) return true;
+
+            return false;
+        }
+
+        function evaluate(){
+            for(let i = 0; i < 3; i++){
+                if(board[i][0] == board[i][1] && board[i][1] == board[i][2]){
+                if(board[i][0] == 'o') return 10;
+                if(board[i][0] == 'x') return -10;
+                }
+            }
+            for(let j = 0; j < 3; j++){
+                if(board[0][j] == board[1][j] && board[1][j] == board[2][j]){
+                if(board[0][j] == 'o') return 10;
+                if(board[0][j] == 'x') return -10;
+                }
+            }
+
+            if(board[0][0] == board[1][1] && board[1][1] == board[2][2]){
+                if(board[0][0] == 'o') return 10;
+                if(board[0][0] == 'x') return -10;
+            }
+
+            if(board[2][0] == board[1][1] && board[1][1] == board[0][2]){
+                if(board[2][0] == 'o') return 10;
+                if(board[2][0] == 'x') return -10;
+            }
+
+            return 0;
+        }
+
+        function minimax(isMax){
+            let score;
+            score = evaluate(board);
+            if(score == 10 || score == -10) return score;
+            if(isFull(board)) return 0; 
+
+            if(isMax){
+                let best = -10000;
+                for(let i = 0; i < 3; i++){
+                    for(let j = 0; j < 3; j++){
+                        if(board[i][j] != '_') continue;
+                        board[i][j] = 'o';
+                        best = Math.max(best, minimax(!isMax));
+                        board[i][j] = '_';
+                    }
+                }
+
+                return best;
+            }
+
+            else{
+                let best = 1000;
+                for(let i = 0; i < 3; i++){
+                    for(let j = 0; j < 3; j++){
+                        if(board[i][j] != '_') continue;
+                        board[i][j] = 'x';
+                        best = Math.min(best, minimax(!isMax));
+                        board[i][j] = '_'; 
+                    }
+                }
+
+                return best;
+            }
+
+            return 0;
+        }
+
+        function computerMove(){
+            let bestMove = -10000;
+            let x = -1, y = -1;
+            for(let i = 0; i < 3; i++){
+                for(let j = 0; j < 3; j++){
+                    if(board[i][j] != '_') continue;
+                    board[i][j] = 'o';
+                    let moveVal = Math.max(bestMove, minimax(false));
+                    board[i][j] = '_';
+
+                    if(moveVal > bestMove){
+                        x = i;
+                        y = j;
+                        bestMove = moveVal;
+                    }
+                }
+            }
+
+            if(x!=-1 && y!=-1)
+                board[x][y] = "o";
+
+            if(x == 0 && y == 0) document.getElementById("a").value = "O";
+            if(x == 0 && y == 1) document.getElementById("b").value = "O";
+            if(x == 0 && y == 2) document.getElementById("c").value = "O";
+            if(x == 1 && y == 0) document.getElementById("d").value = "O";
+            if(x == 1 && y == 1) document.getElementById("e").value = "O";
+            if(x == 1 && y == 2) document.getElementById("f").value = "O";
+            if(x == 2 && y == 0) document.getElementById("g").value = "O";
+            if(x == 2 && y == 1) document.getElementById("h").value = "O";
+            if(x == 2 && y == 2) document.getElementById("i").value = "O";
+
+        }
+
+    </script>
+</html>
