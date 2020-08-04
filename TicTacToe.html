@@ -5,7 +5,7 @@
         <style>
 
             body{
-                background-color: black;
+                background-color: grey;
                 text-align: center;
             }
 
@@ -23,6 +23,11 @@
                 width: 100px;
                 height: 100px;
                 font-size: 60px; 
+                margin-left: -1px;
+                margin-right: -1px;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                padding: 0px 0px 0px 0px;
             }
 
             p{
@@ -38,29 +43,24 @@
         <h1>Welcome to tic tac toe</h1>
         <br><br><br>
         
-        <table class = "centre" >
-            <tr>
-                <th>
-                    <input type = "button" id = "a" onclick = "A(); winner()">
-                    <input type = "button" id = "b" onclick = "B(); winner()" >
-                    <input type = "button" id = "c" onclick = "C(); winner()">
-                </th>
-            </tr>
-            <tr>
-                <th>
-                    <input type = "button" id = "d" onclick = "D(); winner()">
-                    <input type = "button" id = "e" onclick = "E(); winner()">
-                    <input type = "button" id = "f" onclick = "F(); winner()">
-                </th>
-            </tr>
-            <tr>
-                <th>
-                    <input type = "button" id = "g" onclick = "G(); winner()">
-                    <input type = "button" id = "h" onclick = "H(); winner()">
-                    <input type = "button" id = "i" onclick = "I(); winner()">
-                </th>
-            </tr>
-        </table>
+        <input type = "button" id = "a" onclick = "A(); winner()">
+        <input type = "button" id = "b" onclick = "B(); winner()" >
+        <input type = "button" id = "c" onclick = "C(); winner()">
+        <br>
+    
+
+    
+        <input type = "button" id = "d" onclick = "D(); winner()">
+        <input type = "button" id = "e" onclick = "E(); winner()">
+        <input type = "button" id = "f" onclick = "F(); winner()">
+        <br>
+    
+
+        <input type = "button" id = "g" onclick = "G(); winner()">
+        <input type = "button" id = "h" onclick = "H(); winner()">
+        <input type = "button" id = "i" onclick = "I(); winner()">
+                
+            
 
         <br><br>
         <p id = "res"></p>
