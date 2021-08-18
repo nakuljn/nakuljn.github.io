@@ -13,6 +13,10 @@
                 text-align: center;
                 color: blanchedalmond;
             }
+			h3{
+				text-align:center;
+				color: #800000;
+			}
 
             table.centre {
                 margin-left: auto;
@@ -22,9 +26,10 @@
             #a, #b, #c, #d, #e, #f, #g, #h, #i{
                 width: 100px;
                 height: 100px;
+				overflow: hidden;
                 font-size: 60px; 
-                margin-left: -1px;
-                margin-right: -1px;
+                margin-left: 0px;
+                margin-right: 0px;
                 margin-top: 0px;
                 margin-bottom: 0px;
                 padding: 0px 0px 0px 0px;
@@ -33,33 +38,38 @@
             p{
                 color: white;
             }
-
+			
+			.game{
+				display: inline-table;
+			}
             
 
         </style>
     </head>
 
     <body>
-        <h1>Welcome to tic tac toe</h1>
-        <br><br><br>
-        
-        <input type = "button" id = "a" onclick = "A(); winner()">
-        <input type = "button" id = "b" onclick = "B(); winner()" >
-        <input type = "button" id = "c" onclick = "C(); winner()">
+        <h1>Play Tic Tac Toe</h1>
+		<h3>Challenge: Try and beat the bot</h3>
         <br>
-    
-
-    
-        <input type = "button" id = "d" onclick = "D(); winner()">
-        <input type = "button" id = "e" onclick = "E(); winner()">
-        <input type = "button" id = "f" onclick = "F(); winner()">
-        <br>
-    
-
-        <input type = "button" id = "g" onclick = "G(); winner()">
-        <input type = "button" id = "h" onclick = "H(); winner()">
-        <input type = "button" id = "i" onclick = "I(); winner()">
-                
+        <table class="centre">
+		<tr>
+		<td><input type = "button" id = "a" onclick = "A(); winner()"></td>
+		<td><input type = "button" id = "b" onclick = "B(); winner()"></td>
+		<td><input type = "button" id = "c" onclick = "C(); winner()"></td>
+		</tr>
+		<br>
+		<tr>
+		<td><input type = "button" id = "d" onclick = "D(); winner()"></td>
+		<td><input type = "button" id = "e" onclick = "E(); winner()"></td>
+		<td><input type = "button" id = "f" onclick = "F(); winner()"></td>
+		</tr>
+		<br>
+		<tr>
+		<td><input type = "button" id = "g" onclick = "G(); winner()"></td>
+		<td><input type = "button" id = "h" onclick = "H(); winner()"></td>
+		<td><input type = "button" id = "i" onclick = "I(); winner()"></td>
+		</tr>
+		</table>      
             
 
         <br><br>
